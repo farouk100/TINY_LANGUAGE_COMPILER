@@ -1,0 +1,11 @@
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.Form1.resources
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.Form2.resources
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb

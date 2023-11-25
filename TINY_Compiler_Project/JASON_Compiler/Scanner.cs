@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,26 +55,25 @@ namespace TINY_Compiler
             ReservedWords.Add("endl", Token_Class.Endl);
 
             
-            Operators.Add(";", Token_Class.SemicolonOp);
-            Operators.Add(",", Token_Class.CommaOp);
-            Operators.Add("(", Token_Class.LParanthesisOp);
-            Operators.Add(")", Token_Class.RParanthesisOp);
-            Operators.Add("=", Token_Class.IsEqualOp);
-            Operators.Add("<", Token_Class.LessThanOp);
-            Operators.Add(">", Token_Class.GreaterThanOp);
-            Operators.Add("<>", Token_Class.NotEqualOp);
-            Operators.Add("+", Token_Class.PlusOp);
-            Operators.Add("-", Token_Class.MinusOp);
-            Operators.Add("*", Token_Class.MultiplyOp);
-            Operators.Add("/", Token_Class.DivideOp);
-            Operators.Add("&&", Token_Class.AndOp);
-            Operators.Add("||", Token_Class.OrOp);
-            Operators.Add(":=", Token_Class.AssignmentOp);
-            Operators.Add("{", Token_Class.LBrackectOp);
-            Operators.Add("}", Token_Class.RBracketOp);
-
+            Operators.Add(";", Token_Class.SemicolonOp);  // done
+            Operators.Add(",", Token_Class.CommaOp);        // done
+            Operators.Add("(", Token_Class.LParanthesisOp); // done
+            Operators.Add(")", Token_Class.RParanthesisOp);  // done
+            Operators.Add("=", Token_Class.IsEqualOp);    // done
+            Operators.Add("<", Token_Class.LessThanOp);   // done
+            Operators.Add(">", Token_Class.GreaterThanOp); // done
+            Operators.Add("<>", Token_Class.NotEqualOp); // done
+            Operators.Add("+", Token_Class.PlusOp);  // done
+            Operators.Add("-", Token_Class.MinusOp); // done
+            Operators.Add("*", Token_Class.MultiplyOp); // done
+            Operators.Add("/", Token_Class.DivideOp);  // done
+            Operators.Add("&&", Token_Class.AndOp);    // done
+            Operators.Add("||", Token_Class.OrOp);    // done
+            Operators.Add(":=", Token_Class.AssignmentOp); //done
+            Operators.Add("{", Token_Class.LBrackectOp); // done
+            Operators.Add("}", Token_Class.RBracketOp);  // done
         }
-
+        
         public void StartScanning(string SourceCode)
         {
             for(int i=0; i<SourceCode.Length;i++)
@@ -92,11 +92,43 @@ namespace TINY_Compiler
 
                 else if(CurrentChar >= '0' && CurrentChar <= '9')
                 {
-                   
+                    
                 }
-                else if(CurrentChar == '{')
+                else if(CurrentChar == '{' || CurrentChar == '}' 
+                     || CurrentChar == '(' || CurrentChar == ')'
+                     || CurrentChar == '+' || CurrentChar == '-' || CurrentChar == '*' || CurrentChar == '/'
+                     || CurrentChar == ',' || CurrentChar == ';' || CurrentChar == '=' || CurrentChar == '>')
                 {
-                   
+                    i = j;
+                    FindTokenClass(CurrentLexeme);
+                }
+                else if(CurrentChar=='&') 
+                {
+                    if (j != SourceCode.Length-1 && SourceCode[j + 1] == '&')
+                        CurrentLexeme +=CurrentChar.ToString();
+                    i = j;
+                    FindTokenClass(CurrentLexeme);
+                }
+                else if (CurrentChar == '|')
+                {
+                    if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '|')
+                        CurrentLexeme += CurrentChar.ToString();
+                    i = j;
+                    FindTokenClass(CurrentLexeme);
+                }
+                else if (CurrentChar == ':')
+                {
+                    if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '=')
+                        CurrentLexeme += CurrentChar.ToString();
+                    i = j;
+                    FindTokenClass(CurrentLexeme);
+                }
+                else if (CurrentChar == '<') 
+                {
+                    if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '>')
+                        CurrentLexeme += CurrentChar.ToString();
+                    i = j;
+                    FindTokenClass(CurrentLexeme);
                 }
                 else
                 {
@@ -120,7 +152,7 @@ namespace TINY_Compiler
             //Is it a number?
 
             //Is it an operator?
-
+              
             //Is it an undefined?
         }
 
@@ -139,6 +171,17 @@ namespace TINY_Compiler
             // Check if the lex is a Number (constant) or not.
 
             return isValid;
+        }
+        bool isOperator(string lex)
+        {
+            if (lex == "{" || lex == "}"
+               || lex == "(" || lex == ")"
+               || lex == "+" || lex == "-" || lex == "*" || lex == "/"
+               || lex == "," || lex == ";" || lex == "=" || lex == ">"
+               || lex == "&&"|| lex == "||"|| lex == ":="|| lex == "<>")
+                    return true;  // return true if condition satsifed
+            return false;
+            
         }
     }
 }
