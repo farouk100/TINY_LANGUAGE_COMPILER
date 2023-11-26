@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 public enum Token_Class
@@ -94,7 +95,7 @@ namespace TINY_Compiler
 
                 else if(CurrentChar >= '0' && CurrentChar <= '9') // if yoy read number
                 {
-                    for(; j < SourceCode.Length; j++)
+                    for(j = j + 1; j < SourceCode.Length; j++)
                     {
                         CurrentChar = SourceCode[j];
                         if((CurrentChar >= '0' && CurrentChar <= '9') || CurrentChar == '.')
@@ -109,6 +110,7 @@ namespace TINY_Compiler
                     i = j - 1;
                     FindTokenClass(CurrentLexeme);
                 }
+
                 // if you read operator
                 else if(CurrentChar == '{' || CurrentChar == '}' 
                      || CurrentChar == '(' || CurrentChar == ')'
@@ -122,6 +124,7 @@ namespace TINY_Compiler
                 {
                     if (j != SourceCode.Length-1 && SourceCode[j + 1] == '&')
                     {
+                        CurrentChar = SourceCode[j + 1];
                         CurrentLexeme += CurrentChar.ToString();
                         i = j+1;
                     }
@@ -136,6 +139,7 @@ namespace TINY_Compiler
                 {
                     if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '|')
                     {
+                        CurrentChar = SourceCode[j + 1];
                         CurrentLexeme += CurrentChar.ToString();
                         i = j + 1;
                     }
@@ -150,6 +154,7 @@ namespace TINY_Compiler
                 {
                     if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '=')
                     {
+                        CurrentChar = SourceCode[j + 1];
                         CurrentLexeme += CurrentChar.ToString();
                         i = j + 1;
                     }
@@ -164,6 +169,7 @@ namespace TINY_Compiler
                 {
                     if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '>')
                     {
+                        CurrentChar = SourceCode[j + 1];
                         CurrentLexeme += CurrentChar.ToString();
                         i = j + 1;
                     }
@@ -178,7 +184,7 @@ namespace TINY_Compiler
 
                 else
                 {
-                   
+                    FindTokenClass(CurrentChar.ToString());
                 }
             }
             
@@ -190,16 +196,25 @@ namespace TINY_Compiler
             Token Tok = new Token();
             Tok.lex = Lex;
             //Is it a reserved word?
-            
+
 
             //Is it an identifier?
-            
+
 
             //Is it a number?
-
+            if (isNumber(Lex))
+            {
+                Tok.token_type = Token_Class.Number;
+                Tokens.Add(Tok);
+            }
             //Is it an operator?
-              
+            if (isOperator(Lex))
+            {
+                Tok.token_type = Operators[Lex];
+                Tokens.Add(Tok);
+            }
             //Is it an undefined?
+            //Errors.Error_List.Add(Lex);
         }
 
     
@@ -213,19 +228,22 @@ namespace TINY_Compiler
         }
         bool isNumber(string lex)
         {
-            bool isValid = true;
-            // Check if the lex is a Number (constant) or not.
+            Regex re = new Regex(@"^[0-9]+(\.[0-9]+)?$", RegexOptions.Compiled);
+            if (re.IsMatch(lex) == true)
+            {
+                return true;
+            }
 
-            return isValid;
+            return false;
         }
         bool isOperator(string lex)
         {
-            if (lex == "{" || lex == "}"
-               || lex == "(" || lex == ")"
-               || lex == "+" || lex == "-" || lex == "*" || lex == "/"
-               || lex == "," || lex == ";" || lex == "=" || lex == ">" || lex == "<"
-               || lex == "&&"|| lex == "||"|| lex == ":="|| lex == "<>")
-                    return true;  // return true if condition satsifed
+            Regex re = new Regex(@"^(\+|\-|\*|\/|,|;|<|>|=|&&|\|\||<>|:=|\(|\)|\{|\})$" , RegexOptions.Compiled);
+            if (re.IsMatch(lex) == true)
+            {
+                return true;
+            }
+
             return false;
             
         }

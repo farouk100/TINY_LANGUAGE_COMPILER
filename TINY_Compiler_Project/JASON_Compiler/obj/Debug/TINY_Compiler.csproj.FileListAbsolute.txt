@@ -9,3 +9,14 @@ C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compil
 C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
 C:\Users\Admin\Desktop\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csprojAssemblyReference.cache
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.Form1.resources
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.Form2.resources
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.GenerateResource.cache
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.CoreCompileInputs.cache
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
