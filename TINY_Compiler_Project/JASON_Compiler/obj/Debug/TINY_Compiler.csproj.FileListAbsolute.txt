@@ -20,3 +20,15 @@ D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COM
 D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.CoreCompileInputs.cache
 D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
 D:\Materials\compiler\labs\[2021-2022] JASON_Compiler_Template\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.AssemblyReference.cache
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.SuggestedBindingRedirects.cache
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.Form1.resources
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.Form2.resources
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.GenerateResource.cache
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\TINY_Compiler.csproj.CoreCompileInputs.cache
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+C:\Users\yosif\source\repos\TINY_LANGUAGE_COMPILER\TINY_Compiler_Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb

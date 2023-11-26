@@ -44,10 +44,6 @@ namespace TINY_Compiler
                 textBox2.Text += "\r\n";
             }
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -64,6 +60,7 @@ namespace TINY_Compiler
         {
 
         }
+
         /*  void PrintLexemes()
 {
 for (int i = 0; i < TINY_Compiler.Lexemes.Count; i++)

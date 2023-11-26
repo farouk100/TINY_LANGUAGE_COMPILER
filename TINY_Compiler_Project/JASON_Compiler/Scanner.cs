@@ -110,6 +110,22 @@ namespace TINY_Compiler
                     i = j - 1;
                     FindTokenClass(CurrentLexeme);
                 }
+                else if (CurrentChar == '"')
+                {
+                    for (j = j + 1; j < SourceCode.Length; j++)
+                    {
+                        CurrentChar = SourceCode[j];
+                        if(CurrentChar == '"')
+                        {
+                            CurrentLexeme += CurrentChar.ToString();
+                            j++;
+                            break;
+                        }
+                        CurrentLexeme += CurrentChar.ToString();
+                    }
+                    i = j - 1;
+                    FindTokenClass(CurrentLexeme);
+                }
 
                 // if you read operator
                 else if(CurrentChar == '{' || CurrentChar == '}' 
@@ -195,6 +211,13 @@ namespace TINY_Compiler
             Token_Class TC;
             Token Tok = new Token();
             Tok.lex = Lex;
+            //Is it a string
+            if (isString(Lex))
+            {
+
+                Tok.token_type = Token_Class.String;
+                Tokens.Add(Tok);
+            }
             //Is it a reserved word?
 
 
@@ -217,7 +240,15 @@ namespace TINY_Compiler
             //Errors.Error_List.Add(Lex);
         }
 
-    
+        bool isString(string Lex)
+        {
+            Regex re = new Regex(@"\x22[^\x22]*\x22", RegexOptions.Compiled);
+            if (re.IsMatch(Lex) == true)
+            {
+                return true;
+            }
+            return false;
+        }
 
         bool isIdentifier(string lex)
         {
