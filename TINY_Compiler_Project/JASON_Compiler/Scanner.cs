@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 public enum Token_Class
 {
-    Int, Float, String , Read, Write, Repeat, Until, If , ElseIf, Else , Then, Return , Endl,
+    DataTypeInt, DataTypeFloat, DataTypeString, Read, Write, Repeat, Until, If , ElseIf, Else , Then, Return , Endl,
+
+    Comment, String,
 
     PlusOp, MinusOp, MultiplyOp, DivideOp,
 
@@ -40,9 +42,9 @@ namespace TINY_Compiler
 
         public Scanner()
         {
-            ReservedWords.Add("int", Token_Class.Int);
-            ReservedWords.Add("float", Token_Class.Float);
-            ReservedWords.Add("string", Token_Class.String);
+            ReservedWords.Add("int", Token_Class.DataTypeInt);
+            ReservedWords.Add("float", Token_Class.DataTypeFloat);
+            ReservedWords.Add("string", Token_Class.DataTypeString);
             ReservedWords.Add("read", Token_Class.Read);
             ReservedWords.Add("write", Token_Class.Write);
             ReservedWords.Add("Repeat", Token_Class.Repeat);
@@ -90,10 +92,24 @@ namespace TINY_Compiler
                    
                 }
 
-                else if(CurrentChar >= '0' && CurrentChar <= '9')
+                else if(CurrentChar >= '0' && CurrentChar <= '9') // if yoy read number
                 {
-                    
+                    for(; j < SourceCode.Length; j++)
+                    {
+                        CurrentChar = SourceCode[j];
+                        if((CurrentChar >= '0' && CurrentChar <= '9') || CurrentChar == '.')
+                        {
+                            CurrentLexeme += CurrentChar.ToString();
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    i = j - 1;
+                    FindTokenClass(CurrentLexeme);
                 }
+                // if you read operator
                 else if(CurrentChar == '{' || CurrentChar == '}' 
                      || CurrentChar == '(' || CurrentChar == ')'
                      || CurrentChar == '+' || CurrentChar == '-' || CurrentChar == '*' || CurrentChar == '/'
@@ -105,31 +121,61 @@ namespace TINY_Compiler
                 else if(CurrentChar=='&') 
                 {
                     if (j != SourceCode.Length-1 && SourceCode[j + 1] == '&')
-                        CurrentLexeme +=CurrentChar.ToString();
-                    i = j;
+                    {
+                        CurrentLexeme += CurrentChar.ToString();
+                        i = j+1;
+                    }
+                    else
+                    {
+                        i = j;
+                    }
+
                     FindTokenClass(CurrentLexeme);
                 }
                 else if (CurrentChar == '|')
                 {
                     if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '|')
+                    {
                         CurrentLexeme += CurrentChar.ToString();
-                    i = j;
+                        i = j + 1;
+                    }
+                    else
+                    {
+                        i = j;
+                    }
+
                     FindTokenClass(CurrentLexeme);
                 }
                 else if (CurrentChar == ':')
                 {
                     if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '=')
+                    {
                         CurrentLexeme += CurrentChar.ToString();
-                    i = j;
+                        i = j + 1;
+                    }
+                    else
+                    {
+                        i = j;
+                    }
+
                     FindTokenClass(CurrentLexeme);
                 }
                 else if (CurrentChar == '<') 
                 {
                     if (j != SourceCode.Length - 1 && SourceCode[j + 1] == '>')
+                    {
                         CurrentLexeme += CurrentChar.ToString();
-                    i = j;
+                        i = j + 1;
+                    }
+                    else
+                    {
+                        i = j;
+                    }
+              
                     FindTokenClass(CurrentLexeme);
                 }
+                //
+
                 else
                 {
                    
@@ -177,7 +223,7 @@ namespace TINY_Compiler
             if (lex == "{" || lex == "}"
                || lex == "(" || lex == ")"
                || lex == "+" || lex == "-" || lex == "*" || lex == "/"
-               || lex == "," || lex == ";" || lex == "=" || lex == ">"
+               || lex == "," || lex == ";" || lex == "=" || lex == ">" || lex == "<"
                || lex == "&&"|| lex == "||"|| lex == ":="|| lex == "<>")
                     return true;  // return true if condition satsifed
             return false;
