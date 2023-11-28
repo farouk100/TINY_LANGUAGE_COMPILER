@@ -89,7 +89,7 @@ namespace TINY_Compiler
                 char CurrentChar = SourceCode[i];
                 string CurrentLexeme = CurrentChar.ToString();
 
-                if (CurrentChar == ' ' || CurrentChar == '\r' || CurrentChar == '\n')
+                if (CurrentChar == ' ' || CurrentChar == '\r' || CurrentChar == '\n' || CurrentChar == '\t')
                     continue;
 
 
@@ -329,7 +329,7 @@ namespace TINY_Compiler
 
         bool isString(string Lex)
         {
-            Regex re = new Regex(@"^\x22[^\x22]*\x22$", RegexOptions.Compiled);
+            Regex re = new Regex(@"^\x22[^(\x22|\n)]*\x22$", RegexOptions.Compiled);
             if (re.IsMatch(Lex) == true)
             {
                 return true;
