@@ -379,6 +379,7 @@ namespace TINY_Compiler
             return false;
         }
 
+
         bool isOperator(string lex)
         {
             Regex re = new Regex(@"^(\+|\-|\*|\/|,|;|<|>|=|&&|\|\||<>|:=|\(|\)|\{|\})$" , RegexOptions.Compiled);
