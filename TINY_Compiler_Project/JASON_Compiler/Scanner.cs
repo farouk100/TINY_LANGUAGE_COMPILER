@@ -10,7 +10,7 @@ public enum Token_Class
 {
     DataTypeInt, DataTypeFloat, DataTypeString, Read, Write, Repeat, Until, If , ElseIf, Else , Then, Return , Endl,
 
-    Comment, String,
+    String,
 
     PlusOp, MinusOp, MultiplyOp, DivideOp,
 
@@ -23,6 +23,8 @@ public enum Token_Class
     AssignmentOp, SemicolonOp, CommaOp,
 
     Idenifier, Number,
+    Main,
+
 
     NewLine, Space
 }
@@ -58,8 +60,9 @@ namespace TINY_Compiler
             ReservedWords.Add("then", Token_Class.Then);
             ReservedWords.Add("return", Token_Class.Return);
             ReservedWords.Add("endl", Token_Class.Endl);
+            ReservedWords.Add("main", Token_Class.Main);
 
-            
+
             Operators.Add(";", Token_Class.SemicolonOp);  // done
             Operators.Add(",", Token_Class.CommaOp);        // done
             Operators.Add("(", Token_Class.LParanthesisOp); // done
@@ -78,6 +81,7 @@ namespace TINY_Compiler
             Operators.Add("{", Token_Class.LBrackectOp); // done
             Operators.Add("}", Token_Class.RBracketOp);  // done
             Operators.Add("\n", Token_Class.NewLine);  // done
+            Operators.Add("\r", Token_Class.NewLine);  // done
             Operators.Add(" ", Token_Class.Space);  // done
         }
         
@@ -101,6 +105,7 @@ namespace TINY_Compiler
                         CurrentChar = SourceCode[j];
                          if(Operators.ContainsKey(CurrentChar.ToString()))
                         {
+                            
                             break;
                         }
                         else 
@@ -119,7 +124,7 @@ namespace TINY_Compiler
                     for (j = j + 1; j < SourceCode.Length; j++)
                     {
                         CurrentChar = SourceCode[j];
-                        if(CurrentChar == '"')
+                        if(CurrentChar == '"' || CurrentChar == '\n')
                         {
                             CurrentLexeme += CurrentChar.ToString();
                             j++;
@@ -158,7 +163,7 @@ namespace TINY_Compiler
                         }
                     }
                     i = j;
-                    FindTokenClass(CurrentLexeme);
+                    //FindTokenClass(CurrentLexeme);
                 }
 
             
@@ -278,9 +283,12 @@ namespace TINY_Compiler
             //Is it a string
             if (isString(Lex))
             {
+                Tok.lex = Lex.Substring(1, Lex.Length - 2);
+                
                 Tok.token_type = Token_Class.String;
                 Tokens.Add(Tok);
             }
+             
 
             //Is it a reserved word?
             else if (isReservedkeyword(Lex))
@@ -298,11 +306,11 @@ namespace TINY_Compiler
             }
 
             //Is it a comment?
-            else if (isCommentStatment(Lex))
+            /*else if (isCommentStatment(Lex))
             {
                 Tok.token_type = Token_Class.Comment;
                 Tokens.Add(Tok);
-            }
+            }*/
 
             //Is it a number?
             else if (isNumber(Lex))
@@ -360,7 +368,7 @@ namespace TINY_Compiler
         }
         bool isReservedkeyword(string lex)
         {
-            Regex re = new Regex(@"^(int|float|string|read|write|repeat|until|if|elseif|else|then|return|endl)$", RegexOptions.Compiled);
+            Regex re = new Regex(@"^(main|int|float|string|read|write|repeat|until|if|elseif|else|then|return|endl)$", RegexOptions.Compiled);
             if (re.IsMatch(lex) == true)
             {
                 return true;
@@ -368,16 +376,16 @@ namespace TINY_Compiler
 
             return false;
         }
-        bool isCommentStatment(string lex)
-        {
-            Regex re = new Regex(@"^/\*(.|\n)*\*/$", RegexOptions.Compiled);
-            if (re.IsMatch(lex) == true)
-            {
-                return true;
-            }
+        //bool isCommentStatment(string lex)
+        //{
+        //    Regex re = new Regex(@"^/\*(.|\n)*\*/$", RegexOptions.Compiled);
+        //   if (re.IsMatch(lex) == true)
+        //   {
+        //     return true;
+        //   }
 
-            return false;
-        }
+        //    return false;
+        //}
 
 
         bool isOperator(string lex)
