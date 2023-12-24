@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 public enum Token_Class
 {
-    DataTypeInt, DataTypeFloat, DataTypeString, Read, Write, Repeat, Until, If , ElseIf, Else , Then, Return , Endl,
+    DataType, Read, Write, Repeat, Until, If , ElseIf, Else , Then, Return , Endl,
 
     String,
 
@@ -47,9 +47,9 @@ namespace TINY_Compiler
 
         public Scanner()
         {
-            ReservedWords.Add("int", Token_Class.DataTypeInt);
-            ReservedWords.Add("float", Token_Class.DataTypeFloat);
-            ReservedWords.Add("string", Token_Class.DataTypeString);
+            ReservedWords.Add("int", Token_Class.DataType);
+            ReservedWords.Add("float", Token_Class.DataType);
+            ReservedWords.Add("string", Token_Class.DataType);
             ReservedWords.Add("read", Token_Class.Read);
             ReservedWords.Add("write", Token_Class.Write);
             ReservedWords.Add("repeat", Token_Class.Repeat);
