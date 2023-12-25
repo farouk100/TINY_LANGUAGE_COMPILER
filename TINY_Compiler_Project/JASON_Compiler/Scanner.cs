@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 public enum Token_Class
 {
-    DataType, Read, Write, Repeat, Until, If , ElseIf, Else , Then, Return , Endl,
+    DataType, Read, Write, Repeat, Until, If , ElseIf, Else , Then, Return , Endl, End,
 
     String,
 
@@ -60,6 +60,8 @@ namespace TINY_Compiler
             ReservedWords.Add("then", Token_Class.Then);
             ReservedWords.Add("return", Token_Class.Return);
             ReservedWords.Add("endl", Token_Class.Endl);
+            ReservedWords.Add("end", Token_Class.End);
+
             ReservedWords.Add("main", Token_Class.Main);
 
 
@@ -368,7 +370,7 @@ namespace TINY_Compiler
         }
         bool isReservedkeyword(string lex)
         {
-            Regex re = new Regex(@"^(main|int|float|string|read|write|repeat|until|if|elseif|else|then|return|endl)$", RegexOptions.Compiled);
+            Regex re = new Regex(@"^(main|int|float|string|read|write|repeat|until|if|elseif|else|then|return|endl|end)$", RegexOptions.Compiled);
             if (re.IsMatch(lex) == true)
             {
                 return true;
